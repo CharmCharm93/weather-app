@@ -63,7 +63,7 @@
   margin-right: 5px;
   padding: 5px;
 }
-.searchBtn {
+.convertBtn {
   background-color: #fff;
   border: 1px solid #d5d9d9;
   border-radius: 8px;
@@ -84,11 +84,11 @@
   width: 100px;
 }
 
-.searchBtn:hover {
+.convertBtn:hover {
   background-color: #f7fafa;
 }
 
-.searchBtn:focus {
+.convertBtn:focus {
   border-color: #008296;
   box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
   outline: 0;

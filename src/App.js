@@ -11,6 +11,8 @@ function App() {
   const [weatherInfo, setWeatherInfo] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [unit, setUnit] = useState("metric");
+
   useEffect(() => {
     document.title = "Weather App";
   }, []);
@@ -21,19 +23,26 @@ function App() {
       setLoading(true);
       //Process
       try {
-        const url = `${api.base}weather?q=${searchCity}&units=metric&appID=${api.key}`;
+        const url = `${api.base}weather?q=${searchCity}&units=${unit}&appID=${api.key}`;
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data);
         if (response.ok) {
           setWeatherInfo(
             <div className="location">
               <div className="city">
                 {data.name}, {data.sys.country}
               </div>
-              <div className="temp"> {data.main.temp}°C</div>
+              <div className="temp">
+                {" "}
+                {data.main.temp}
+                {unit === "metric" ? "°C" : "°F"}
+              </div>
               <div className="description">{data.weather[0].description}</div>
               <div className="hi-low">
-                {data.main.temp_max}°C / {data.main.temp_min}°C
+                {data.main.temp_max}
+                {unit === "metric" ? "°C" : "°F"} / {data.main.temp_min}
+                {unit === "metric" ? "°C" : "°F"}
               </div>
             </div>
           );
@@ -47,11 +56,15 @@ function App() {
       setLoading(false);
     };
     fetchWeatherData();
-  }, [searchCity]);
+  }, [searchCity, unit]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchCity(searchInput);
+  };
+
+  const handleConvert = () => {
+    unit === "metric" ? setUnit("imperial") : setUnit("metric");
   };
   return (
     <div className="container">
@@ -63,7 +76,9 @@ function App() {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button className="searchBtn">Search</button>
+        <button className="convertBtn" onClick={handleConvert}>
+          °C ⇔ °F
+        </button>
       </form>
       <Loading
         weatherInfo={weatherInfo}
