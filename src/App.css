@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 15px 15px;
+}
+.labelInputBox {
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mainDisplay {
+  flex: 1 1 100%;
+  padding: 25px 25px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.location .city {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.location .temp {
+  font-size: 102px;
+  font-weight: 900;
+  margin: 30px 0px;
+  text-shadow: 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.location .description {
+  font-size: 32px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 15px;
+  text-shadow: 0px 3px rgba(0, 0, 0, 0.4);
+  text-transform: capitalize;
+}
+
+.location .hi-low {
+  font-size: 24px;
+  font-weight: 500;
+  text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+#inputBox {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  color: #0f1111;
+  line-height: 19px;
+  margin-right: 5px;
+  padding: 5px;
+}
+.searchBtn {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.searchBtn:hover {
+  background-color: #f7fafa;
+}
+
+.searchBtn:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  outline: 0;
+}
+
+.container {
+  font-family: "montserrat", sans-serif;
+  background-image: url("bgi.png");
+  background-size: cover;
+  background-position: top center;
+  min-height: 100vh;
+}
+
+.errorMsg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 55px;
+  font-weight: 900;
+  font-style: italic;
+  text-shadow: 2px 10px rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
 }
